@@ -1,0 +1,18 @@
+{% extends "student/base.html" %}
+{% load customfilters %}
+{% block left-content %}
+<h1>Candidate Detail</h1>
+<p class="float-end">Applicantion No: {{candidate.id}}</p>
+<img src="{{candidate.profile_image.url}}" alt="" class="img-fluid img-thumbnail float-end mt-4" width="150" height="150">
+<p>Name: {{candidate.Name}}</p>
+<p>Date of Birth: {{candidate.Date_Of_Birth}}</p>
+<p>Gender: {{candidate.Gender}}</p>
+<p>Address: {{candidate.Locality}}, {{candidate.City}}, {{candidate.Choose_Your_State}} - {{candidate.Pin}}</p>
+<p>Mobile No: {{candidate.Mobile}}</p>
+<p>Email ID: {{candidate.Email}}</p>
+<p>Preferred Job Cities: {{candidate.Job_City|change:"[] ' "}}</p>
+<p>Attachment: <a href="{{candidate.my_file.url}}">Download File</a></p>
+<div class="text-center">
+<a href="/" class="btn btn-danger">Back to Home</a>
+</div>
+{% endblock  %}

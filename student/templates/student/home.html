@@ -1,0 +1,334 @@
+{% extends "student/base.html" %}
+
+{% block left-content %}
+
+<form action="" method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+            <p class="alert alert-danger my-3">
+                {{ error }}
+            </p>
+        {% endfor %}
+    {% endif %}
+
+
+    <!-- Name -->
+    <div class="mb-3">
+
+        <label for="{{ form.Name.id_for_label }}" class="form-label">
+            {{ form.Name.label }}
+        </label>
+
+        {{ form.Name }}
+
+        {% if form.Name.errors %}
+            <div class="text-danger">
+                {% for error in form.Name.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+
+
+    <!-- Date of Birth -->
+    <div class="mb-3">
+
+        <label for="{{ form.Date_Of_Birth.id_for_label }}" class="form-label">
+            {{ form.Date_Of_Birth.label }}
+        </label>
+
+        {{ form.Date_Of_Birth }}
+
+        {% if form.Date_Of_Birth.errors %}
+            <div class="text-danger">
+                {% for error in form.Date_Of_Birth.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+
+
+    <!-- Gender -->
+    <div class="mb-3">
+
+        <label class="form-label">
+            {{ form.Gender.label }}
+        </label>
+
+        {{ form.Gender }}
+
+        {% if form.Gender.errors %}
+            <div class="text-danger">
+                {% for error in form.Gender.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+
+
+    <!-- Locality -->
+    <div class="mb-3">
+
+        <label for="{{ form.Locality.id_for_label }}" class="form-label">
+            {{ form.Locality.label }}
+        </label>
+
+        {{ form.Locality }}
+
+        {% if form.Locality.errors %}
+            <div class="text-danger">
+                {% for error in form.Locality.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+
+
+    <!-- City -->
+    <div class="mb-3">
+
+        <label for="{{ form.City.id_for_label }}" class="form-label">
+            {{ form.City.label }}
+        </label>
+
+        {{ form.City }}
+
+        {% if form.City.errors %}
+            <div class="text-danger">
+                {% for error in form.City.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+
+
+    <!-- PIN -->
+    <div class="mb-3">
+
+        <label for="{{ form.Pin.id_for_label }}" class="form-label">
+            {{ form.Pin.label }}
+        </label>
+
+        {{ form.Pin }}
+
+        {% if form.Pin.errors %}
+            <div class="text-danger">
+                {% for error in form.Pin.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+
+
+    <!-- State -->
+    <div class="mb-3">
+
+        <label for="{{ form.Choose_Your_State.id_for_label }}" class="form-label">
+            {{ form.Choose_Your_State.label }}
+        </label>
+
+        {{ form.Choose_Your_State }}
+
+        {% if form.Choose_Your_State.errors %}
+            <div class="text-danger">
+                {% for error in form.Choose_Your_State.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+
+
+    <!-- Mobile -->
+    <div class="mb-3">
+
+        <label for="{{ form.Mobile.id_for_label }}" class="form-label">
+            {{ form.Mobile.label }}
+        </label>
+
+        {{ form.Mobile }}
+
+        {% if form.Mobile.errors %}
+            <div class="text-danger">
+                {% for error in form.Mobile.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+
+
+    <!-- Email -->
+    <div class="mb-3">
+
+        <label for="{{ form.Email.id_for_label }}" class="form-label">
+            {{ form.Email.label }}
+        </label>
+
+        {{ form.Email }}
+
+        {% if form.Email.errors %}
+            <div class="text-danger">
+                {% for error in form.Email.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+
+
+    <!-- Job City -->
+    <div class="mb-3">
+
+        <label class="form-label">
+            {{ form.Job_City.label }}
+        </label>
+
+        {{ form.Job_City }}
+
+        {% if form.Job_City.help_text %}
+            <div class="form-text">
+                {{ form.Job_City.help_text }}
+            </div>
+        {% endif %}
+
+        {% if form.Job_City.errors %}
+            <div class="text-danger">
+                {% for error in form.Job_City.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+
+
+    <!-- Profile Image -->
+    <div class="mb-3">
+
+        <label for="{{ form.profile_image.id_for_label }}" class="form-label">
+            {{ form.profile_image.label }}
+        </label>
+
+        {{ form.profile_image }}
+
+        {% if form.profile_image.help_text %}
+            <div class="form-text">
+                {{ form.profile_image.help_text }}
+            </div>
+        {% endif %}
+
+        {% if form.profile_image.errors %}
+            <div class="text-danger">
+                {% for error in form.profile_image.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="mt-3">
+
+            <img
+                id="imagePreview"
+                src=""
+                alt="Image Preview"
+                style="display: none; max-width: 50%; height: auto;"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- My File -->
+    <div class="mb-3">
+
+        <label for="{{ form.my_file.id_for_label }}" class="form-label">
+            {{ form.my_file.label }}
+        </label>
+
+        {{ form.my_file }}
+
+        {% if form.my_file.errors %}
+            <div class="text-danger">
+                {% for error in form.my_file.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+
+
+    <!-- Submit -->
+    <button type="submit" class="btn btn-primary">
+        Submit
+    </button>
+
+</form>
+
+
+<script>
+
+const profileImageInput = document.getElementById("id_profile_image");
+const imagePreview = document.getElementById("imagePreview");
+
+profileImageInput.addEventListener("change", function(event) {
+
+    const file = event.target.files[0];
+
+    if (file) {
+
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+
+            imagePreview.src = e.target.result;
+            imagePreview.style.display = "block";
+
+        };
+
+        reader.readAsDataURL(file);
+
+    } else {
+
+        imagePreview.src = "";
+        imagePreview.style.display = "none";
+
+    }
+
+});
+
+</script>
+
+{% endblock %}
+
+
+{% block right-content %}
+
+<h4 class="text-center mb-3">
+    <u>List Of Candidate</u>
+</h4>
+
+{% for candidate in candidates  %}
+<p>{{candidate.id}} : <a href="{% url 'candidate_detail' candidate.id %}">{{candidate.name}}</a></p>
+{% endfor %}
+{% endblock %}
